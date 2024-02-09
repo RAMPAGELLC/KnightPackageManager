@@ -1,0 +1,8 @@
+{
+    "ok": true,
+    "author": {
+        "username": "vq9o",
+        "user_id": 744482898
+    },
+    "script": "local Metadata = { PackageName = 'template', Version = 'latest', LuaSource = 'local Knight = {} return Knight' } local ReplicatedStorage = game:GetService('ReplicatedStorage') if not ReplicatedStorage:FindFirstChild('Packages') then error('RAMPAGE-CLI: Please run: `install kpm`.') end if not ReplicatedStorage.Packages:FindFirstChild('KPM') then error('RAMPAGE-CLI: Please run: `install kpm`.') end if ReplicatedStorage.Packages:FindFirstChild(Metadata.PackageName) then error('RAMPAGE-CLI: Package already installed, please run uninstall command.') end local Package = Instance.new('Folder') Package.Name = string.format('%s@%s', Metadata.PackageName, Metadata.Version) Package.Parent = ReplicatedStorage.Packages.KPM local Version = Instance.new('StringValue') Version.Name = 'Version' Version.Value = Metadata.Version Version.Parent = Package local ModuleScript = Instance.new('ModuleScript') ModuleScript.Name = 'Init' ModuleScript.Parent = Package ModuleScript.LuaSource = Metadata.LuaSource"
+}
